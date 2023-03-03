@@ -1,4 +1,5 @@
 import React from "react";
+import { toast, ToastContainer } from "react-toastify";
 import ProductList from "./ProductList";
 
 const Cart = ({ cart, removeFromCart }) => {
@@ -18,7 +19,9 @@ const Cart = ({ cart, removeFromCart }) => {
                 <p>Price: {price}</p>
                 <button
                   className="add-to-basket"
-                  onClick={() => removeFromCart(id)}
+                  onClick={() => {
+                    toast.error("item removed!");
+                    removeFromCart(id)}}
                 >
                   Remove from Basket
                 </button>
@@ -29,6 +32,7 @@ const Cart = ({ cart, removeFromCart }) => {
           <h2>Cart is Empty:(</h2>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };

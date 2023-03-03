@@ -1,4 +1,5 @@
 import ProductList from "./ProductList";
+import Footer from "./Footer";
 const Shop = ({ products, isLoading, error, addToCart }) => {
   return (
     <div className="featured-list">
@@ -9,6 +10,7 @@ const Shop = ({ products, isLoading, error, addToCart }) => {
       {isLoading && <div>Please wait...</div>}
       {products && <ProductList addToCart={addToCart} products={products} />}
       {error && <div>{error}</div>}
+      <Footer />
     </div>
   );
 };

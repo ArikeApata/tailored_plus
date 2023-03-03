@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BsFillCartPlusFill } from "react-icons/bs";
 const ProductList = ({ products, addToCart }) => {
   return (
     <div className="product-list">
@@ -8,14 +8,16 @@ const ProductList = ({ products, addToCart }) => {
         return (
           <div className="product-preview" key={id}>
             <img src={image} alt="" className="product-image" />
-            <h2>{title}</h2>
-            <p>Price: {price}</p>
-            <button
-              className="add-to-basket"
-              onClick={() => addToCart(product)}
-            >
-              Add to Basket
-            </button>
+            <div className="prduct">
+              <h2>{title}</h2>
+              <p>Price: {price}</p>
+              <span
+                className="add-to-basket"
+                onClick={() => addToCart(product)}
+              >
+              <BsFillCartPlusFill/>
+              </span>
+            </div>
           </div>
         );
       })}

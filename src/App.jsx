@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Featured from "./Featured";
 import useFetch from "./Fetch";
-import Footer from "./Footer";
 import Home from "./Home";
 import NavBar from "./Navbar";
 import Recommend from "./Recommend";
@@ -10,25 +9,29 @@ import Shop from "./Shop";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Cart from "./Cart";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+
+import "./mil.css";
+import "react-toastify/dist/ReactToastify.css";
 
 function App(props) {
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
-  const [page, setPage] = useState(true);
 
   const addToCart = (product) => {
     const checkProduct = cart.filter((item) => item.id === product.id);
     if (checkProduct.length) {
-      alert("you already added this item!");
+      toast.error("you already added this item!");
       return;
     } else {
+      toast.success("item was added to cart!");
       setCart((prevState) => [...prevState, product]);
     }
   };
 
   const removeFromCart = (id) => {
     const newCart = cart.filter((product) => product.id !== id);
+
     setCart(newCart);
   };
 
@@ -62,16 +65,13 @@ function App(props) {
 
   return (
     <div className="App">
-      <header>
-        <NavBar
-          search={search}
-          handleChange={handleChange}
-          handleSearch={handleSearch}
-          setPage={setPage}
-          products={products}
-          cart={cart}
-        />
-      </header>
+      <NavBar
+        search={search}
+        handleChange={handleChange}
+        handleSearch={handleSearch}
+        products={products}
+        cart={cart}
+      />
 
       <div className="content">
         <Switch>
@@ -103,9 +103,6 @@ function App(props) {
           </Route>
         </Switch>
       </div>
-      <footer>
-        <Footer />
-      </footer>
       
     </div>
   );
