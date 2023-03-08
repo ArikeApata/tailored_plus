@@ -18,7 +18,7 @@ const Cart = ({ cart, removeFromCart }) => {
                 <h2>{title}</h2>
                 <p>Price: {price}</p>
                 <button
-                  className="add-to-basket"
+                  className="remove-button"
                   onClick={() => {
                     toast.error("item removed!");
                     removeFromCart(id)}}

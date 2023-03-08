@@ -8,10 +8,10 @@ const Home = ({ addToCart }) => {
     <div className="home">
       <div className="banner">
         <div className="banner-content">
-          <h1>Begin you journey into Elegance</h1>
+          <h1>Begin your journey into Elegance</h1>
           <p>Step out in style...</p>
-          <div className="">
-            <Link to="/shop">
+          <div>
+            <Link to="/shop" className="shop-button">
               Shop Now
               <span>
                 <AiOutlineArrowRight />

@@ -9,8 +9,7 @@ import Shop from "./Shop";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Cart from "./Cart";
-import { ToastContainer, toast } from "react-toastify";
-
+import { toast } from "react-toastify";
 import "./mil.css";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -56,7 +55,7 @@ function App(props) {
       const filteredData = defaultProducts.filter((f) => {
         if (f.title.toLowerCase().includes(search.toLowerCase())) {
           return f;
-        }
+        } 
       });
 
       setData(filteredData);
